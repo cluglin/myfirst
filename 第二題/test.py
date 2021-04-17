@@ -72,8 +72,7 @@ def Get_Info(session, headers):  # 從這個api抓物件(網址、出租者、�
                     "現況": i['kind_name'],
                     "性別要求": sex_req
                 })
-
-
-session = requests.session()
-headers = Get_Headers(session)
-Get_Info(session, headers)
+if __name__=="__main__":
+    session = requests.session()
+    headers = Get_Headers(session)
+    Get_Info(session, headers)
