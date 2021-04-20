@@ -38,10 +38,10 @@
 3. 將租屋物件資料儲存在資料庫中。
 4. 【設計/建立 RESTful API】供查詢下列資訊: 【以 JSON 格式回傳，請自訂 Schema】
 - 【男生可承租】且【位於新北】的租屋物件
-http://35.185.144.48:8001/search?region=2&sex_req=1
+http://35.185.144.48:8002/search?region=2&sex_req=1
 - 以【聯絡電話】查詢租屋物件
-http://35.185.144.48:8001/search?phone=02-25569419
+http://35.185.144.48:8002/search?phone=02-25569419
 - 所有【非屋主自行刊登】的租屋物件
-http://35.185.144.48:8001/search?renter_title=2,3
+http://35.185.144.48:8002/search?renter_title=2,3
 - 【臺北】【屋主為女性】【姓氏為吳】所刊登的所有租屋物件
-http://35.185.144.48:8001/search?region=1&renter_is_woman=1&renter_title=1&last_name=吳
+http://35.185.144.48:8002/search?region=1&renter_is_woman=1&renter_title=1&last_name=吳
