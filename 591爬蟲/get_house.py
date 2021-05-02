@@ -1,8 +1,8 @@
-import time
 from bs4 import BeautifulSoup
 import json
 import requests
 from pymongo import MongoClient
+import re
 client = MongoClient('localhost', 27017)
 db = client['Rent_db']
 col = db['Rent_collection']
@@ -30,7 +30,8 @@ def Get_amount():
         with requests.session() as s:
             session = s.get('https://rent.591.com.tw/?kind=0&region=3', cookies={"urlJumpIp":url[i]})
             soup = BeautifulSoup(session.text, 'html.parser')
-            amount.append(int(soup.find('div',{'class':'pull-left hasData'}).find('i').text[1:-1].replace(',','')))
+            string = str(soup.find('div',{'class':'pull-left hasData'}))
+            amount.append(int(re.search('<i> (.*?) </i>',string).group(1).replace(',','')))
     return amount
 
 def Get_Info(session, headers, amount):  # 從這個api抓物件(網址、出租者、出租者身分、型態、現況、性別要求)
